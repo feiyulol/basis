@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+	<springProperty scope="context" name="logLevel" source="log.level" />
+	<springProperty scope="context" name="logPath" source="log.path" />
+	<springProperty scope="context" name="logstashHost" source="log.logstash.host" />
+	<springProperty scope="context" name="logstashPort" source="log.logstash.port" />
+	
+	<appender name="LOGSTASH"
+		class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+		<destination>${logstashHost}:${logstashPort}</destination>
+		<encoder charset="UTF-8"
+			class="net.logstash.logback.encoder.LogstashEncoder" />
+	</appender>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<root level="${logLevel}">
+		<!-- <root level="DEBUG"> -->
+		<appender-ref ref="LOGSTASH" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>
