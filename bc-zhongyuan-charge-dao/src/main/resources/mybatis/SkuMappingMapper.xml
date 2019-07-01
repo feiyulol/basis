@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 2019年07月01日 13时30分48秒 by Generator -->
+<mapper namespace="com.bc.zhongyuan.charge.dao.mapper.SkuMappingMapper">
+
+  <resultMap id="BaseResultMap" type="com.bc.zhongyuan.charge.model.SkuMapping">
+	<result column="id" jdbcType="INTEGER" property="id" />
+	<result column="product_id" jdbcType="VARCHAR" property="productId" />
+	<result column="sku" jdbcType="VARCHAR" property="sku" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+	id, product_id, sku
+  </sql>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+    from bc_zhongyuan_charge.sku_mapping
+  </select>
+  
+  <select id="selectByCondition" parameterType="com.bc.zhongyuan.charge.dao.condition.SkuMappingCondition" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+  	from bc_zhongyuan_charge.sku_mapping
+	<where>
+      <if test="id != null">
+        AND id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="productId != null">
+        AND product_id = #{productId,jdbcType=VARCHAR}
+      </if>
+      <if test="sku != null">
+        AND sku = #{sku,jdbcType=VARCHAR}
+      </if>
+	</where>
+  </select>
+  
+  <insert id="insert" parameterType="com.bc.zhongyuan.charge.model.SkuMapping">
+    insert into bc_zhongyuan_charge.sku_mapping
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id, 
+      </if>
+      <if test="productId != null">
+        product_id, 
+      </if>
+      <if test="sku != null">
+        sku, 
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null">
+        #{sku,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateById" parameterType="com.bc.zhongyuan.charge.model.SkuMapping">
+    update bc_zhongyuan_charge.sku_mapping
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="sku != null">
+        sku = #{sku,jdbcType=VARCHAR},
+      </if>
+    </set>
+	<where>
+      AND id = #{id,jdbcType=INTEGER}
+	</where>
+  </update>
+
+</mapper>

@@ -8,16 +8,16 @@
         <version>1.5.1.RELEASE</version>
     </parent>
     <groupId>com.bc.zhongyuan.charge</groupId>
-    <artifactId>com.bc.zhongyuan.charge</artifactId>
+    <artifactId>com-bc-zhongyuan-charge</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <modules>
-        <module>bc-zhonghang-charge-dao</module>
-        <module>bc-zhonghang-charge-web</module>
-        <module>bc-zhonghang-charge-model</module>
-        <module>bc-zhonghang-charge-service</module>
-        <module>bc-zhonghang-charge-util</module>
+        <module>bc-zhongyuan-charge-dao</module>
+        <module>bc-zhongyuan-charge-web</module>
+        <module>bc-zhongyuan-charge-model</module>
+        <module>bc-zhongyuan-charge-service</module>
+        <module>bc-zhongyuan-charge-util</module>
     </modules>
-    <name>charge</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

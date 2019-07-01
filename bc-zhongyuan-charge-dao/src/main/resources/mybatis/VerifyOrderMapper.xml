@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 2019年07月01日 15时16分20秒 by Generator -->
+<mapper namespace="com.bc.zhongyuan.charge.dao.mapper.VerifyOrderMapper">
+
+  <resultMap id="BaseResultMap" type="com.bc.zhongyuan.charge.model.VerifyOrder">
+	<result column="id" jdbcType="INTEGER" property="id" />
+	<result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+	<result column="bc_trade_no" jdbcType="VARCHAR" property="bcTradeNo" />
+	<result column="price" jdbcType="VARCHAR" property="price" />
+	<result column="activity_name" jdbcType="VARCHAR" property="activityName" />
+	<result column="activity_no" jdbcType="VARCHAR" property="activityNo" />
+	<result column="product_name" jdbcType="VARCHAR" property="productName" />
+	<result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+	<result column="product_no" jdbcType="VARCHAR" property="productNo" />
+	<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+	<result column="order_status" jdbcType="VARCHAR" property="orderStatus" />
+	<result column="recharge_status" jdbcType="VARCHAR" property="rechargeStatus" />
+	<result column="recharge_status_desc" jdbcType="VARCHAR" property="rechargeStatusDesc" />
+	<result column="verify_status" jdbcType="VARCHAR" property="verifyStatus" />
+	<result column="verify_desc" jdbcType="VARCHAR" property="verifyDesc" />
+	<result column="phone" jdbcType="VARCHAR" property="phone" />
+	<result column="coupon_no" jdbcType="VARCHAR" property="couponNo" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+	id, order_no, bc_trade_no, price, activity_name, activity_no, 
+	product_name, customer_name, product_no, create_time, update_time, order_status, 
+	recharge_status, recharge_status_desc, verify_status, verify_desc, phone, coupon_no
+  </sql>
+
+  <select id="selectByOrderNo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bc_zhongyuan_charge.verify_order
+    where
+    order_no = #{orderNo,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+    from bc_zhongyuan_charge.verify_order
+  </select>
+  
+  <select id="selectByCondition" parameterType="com.bc.zhongyuan.charge.dao.condition.VerifyOrderCondition" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+  	from bc_zhongyuan_charge.verify_order
+	<where>
+      <if test="id != null">
+        AND id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="orderNo != null">
+        AND order_no = #{orderNo,jdbcType=VARCHAR}
+      </if>
+      <if test="bcTradeNo != null">
+        AND bc_trade_no = #{bcTradeNo,jdbcType=VARCHAR}
+      </if>
+      <if test="price != null">
+        AND price = #{price,jdbcType=VARCHAR}
+      </if>
+      <if test="activityName != null">
+        AND activity_name = #{activityName,jdbcType=VARCHAR}
+      </if>
+      <if test="activityNo != null">
+        AND activity_no = #{activityNo,jdbcType=VARCHAR}
+      </if>
+      <if test="productName != null">
+        AND product_name = #{productName,jdbcType=VARCHAR}
+      </if>
+      <if test="customerName != null">
+        AND customer_name = #{customerName,jdbcType=VARCHAR}
+      </if>
+      <if test="productNo != null">
+        AND product_no = #{productNo,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null">
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null">
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="orderStatus != null">
+        AND order_status = #{orderStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="rechargeStatus != null">
+        AND recharge_status = #{rechargeStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="rechargeStatusDesc != null">
+        AND recharge_status_desc = #{rechargeStatusDesc,jdbcType=VARCHAR}
+      </if>
+      <if test="verifyStatus != null">
+        AND verify_status = #{verifyStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="verifyDesc != null">
+        AND verify_desc = #{verifyDesc,jdbcType=VARCHAR}
+      </if>
+      <if test="phone != null">
+        AND phone = #{phone,jdbcType=VARCHAR}
+      </if>
+      <if test="couponNo != null">
+        AND coupon_no = #{couponNo,jdbcType=VARCHAR}
+      </if>
+	</where>
+  </select>
+  
+  <insert id="insert" parameterType="com.bc.zhongyuan.charge.model.VerifyOrder">
+    insert into bc_zhongyuan_charge.verify_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id, 
+      </if>
+      <if test="orderNo != null">
+        order_no, 
+      </if>
+      <if test="bcTradeNo != null">
+        bc_trade_no, 
+      </if>
+      <if test="price != null">
+        price, 
+      </if>
+      <if test="activityName != null">
+        activity_name, 
+      </if>
+      <if test="activityNo != null">
+        activity_no, 
+      </if>
+      <if test="productName != null">
+        product_name, 
+      </if>
+      <if test="customerName != null">
+        customer_name, 
+      </if>
+      <if test="productNo != null">
+        product_no, 
+      </if>
+      <if test="createTime != null">
+        create_time, 
+      </if>
+      <if test="updateTime != null">
+        update_time, 
+      </if>
+      <if test="orderStatus != null">
+        order_status, 
+      </if>
+      <if test="rechargeStatus != null">
+        recharge_status, 
+      </if>
+      <if test="rechargeStatusDesc != null">
+        recharge_status_desc, 
+      </if>
+      <if test="verifyStatus != null">
+        verify_status, 
+      </if>
+      <if test="verifyDesc != null">
+        verify_desc, 
+      </if>
+      <if test="phone != null">
+        phone, 
+      </if>
+      <if test="couponNo != null">
+        coupon_no, 
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bcTradeNo != null">
+        #{bcTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null">
+        #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="activityNo != null">
+        #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null">
+        #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rechargeStatus != null">
+        #{rechargeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rechargeStatusDesc != null">
+        #{rechargeStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyStatus != null">
+        #{verifyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyDesc != null">
+        #{verifyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="couponNo != null">
+        #{couponNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateById" parameterType="com.bc.zhongyuan.charge.model.VerifyOrder">
+    update bc_zhongyuan_charge.verify_order
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bcTradeNo != null">
+        bc_trade_no = #{bcTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null">
+        activity_name = #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="activityNo != null">
+        activity_no = #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="productNo != null">
+        product_no = #{productNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rechargeStatus != null">
+        recharge_status = #{rechargeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rechargeStatusDesc != null">
+        recharge_status_desc = #{rechargeStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyStatus != null">
+        verify_status = #{verifyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyDesc != null">
+        verify_desc = #{verifyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="couponNo != null">
+        coupon_no = #{couponNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+	<where>
+      AND id = #{id,jdbcType=INTEGER}
+	</where>
+  </update>
+
+</mapper>
